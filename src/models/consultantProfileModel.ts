@@ -6,7 +6,7 @@ export interface IConsultant extends Document {
   skills: string[];
   domain: string;
   availabilityTimeline: string;
-  yearsOfExperience?: number;
+  yearsOfExperience: number;
   bio?: string;
 }
 
@@ -21,7 +21,7 @@ const consultantProfileSchema: Schema = new Schema<IConsultant>({
   skills: [{ type: String, required: true }], //  ['nodejs', 'java']
   domain: { type: String, required: true }, //  'healthcare', 'fintech'
   availabilityTimeline: { type: String, required: true }, //'1 month', 'immediate'
-  yearsOfExperience: { type: Number },
+  yearsOfExperience: { type: Number , default: 0 , required: true }, // default to 0 if not provided
   bio: { type: String },
 },{ timestamps:true});
 
